@@ -1,0 +1,27 @@
+{
+  "name": "arduino-alexa-bridge",
+  "keywords": "arduino, alexa",
+  "description": "A set of wrappers for creating a dridge between Arduino devices and Alexa.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sskorol/arduino-alexa-bridge.git"
+  },
+  "authors": [
+    {
+      "name": "Sergey Korol",
+      "email": "serhii.s.korol@gmail.com",
+      "url": "https://sskorol.github.io/online-cv",
+      "maintainer": true
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "ArduinoJson",
+      "authors": "Benoit Blanchon",
+      "frameworks": "arduino"
+    }
+  ],
+  "version": "0.0.1",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
