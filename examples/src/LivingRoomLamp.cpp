@@ -11,7 +11,7 @@ const unsigned long LivingRoomLamp::TURN_OFF_CODE = 400002;
 
 LivingRoomLamp::LivingRoomLamp(uint8_t pin) : Lamp(pin) {
   std::list<DeviceCapability> capabilities = initCapabilities();
-  deviceInfo = new DeviceInfo("bedroom_lamp", "bedroom light", "Bedroom Lamp", "Home", {DisplayCategory::LIGHT}, capabilities);
+  deviceInfo = new DeviceInfo("living_room_lamp", "living room light", "Living Room Lamp", "Home", {DisplayCategory::LIGHT}, capabilities);
 }
 
 std::list<DeviceCapability> LivingRoomLamp::initCapabilities() {
