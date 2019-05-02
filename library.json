@@ -17,6 +17,7 @@
   "dependencies": [
     {
       "name": "ArduinoJson",
+      "version": "6.10.1",
       "authors": "Benoit Blanchon",
       "frameworks": "arduino"
     }
