@@ -16,6 +16,7 @@ String DeviceInfo::getDiscoveryInfo() {
   jsonBuffer["friendlyName"] = friendlyName;
   jsonBuffer["description"] = description;
   jsonBuffer["manufacturerName"] = manufacturerName;
+  jsonBuffer.createNestedObject("cookie");
 
   JsonArray categories = jsonBuffer.createNestedArray("displayCategories");
   for (auto category : displayCategories) {

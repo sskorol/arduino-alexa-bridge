@@ -30,5 +30,3 @@ const String DisplayCategory::ACTIVITY_TRIGGER = "ACTIVITY_TRIGGER";
 const String DisplayCategory::CAMERA = "CAMERA";
 const String DisplayCategory::SWITCH = "SWITCH";
 const String DisplayCategory::TV = "TV";
-
-const String API_VERSION = "3";

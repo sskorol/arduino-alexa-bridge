@@ -4,7 +4,7 @@
 #include <Arduino.h>
 
 namespace Alexa {
-static const String API_VERSION;
+static const String API_VERSION = "3";
 
 class Interface {
  public:
