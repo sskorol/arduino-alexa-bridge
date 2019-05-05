@@ -10,30 +10,7 @@ const unsigned long LivingRoomLamp::TURN_ON_CODE = 400001;
 const unsigned long LivingRoomLamp::TURN_OFF_CODE = 400002;
 
 LivingRoomLamp::LivingRoomLamp(uint8_t pin) : Lamp(pin) {
-  std::list<DeviceCapability> capabilities = initCapabilities();
-  deviceInfo = new DeviceInfo("living_room_lamp", "living room light", "Living Room Lamp", "Home", {DisplayCategory::LIGHT}, capabilities);
-}
-
-std::list<DeviceCapability> LivingRoomLamp::initCapabilities() {
-  DeviceCapability powerCapability = DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::POWER,
-      API_VERSION,
-      {Property::POWER_STATE});
-
-  DeviceCapability alexaCapability = DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::ALEXA,
-      API_VERSION,
-      {});
-
-  DeviceCapability healthCapability = DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::ENDPOINT_HEALTH,
-      API_VERSION,
-      {Property::CONNECTIVITY});
-
-  return {powerCapability, alexaCapability, healthCapability};
+  deviceInfo = new DeviceInfo("living_room_lamp", "living room light", "Living Room Lamp", "Home", {DisplayCategory::LIGHT}, {DisplayCategory::LIGHT}, {Alexa::powerCapability(), Alexa::alexaCapability(), Alexa::healthCapability()});
 }
 
 void LivingRoomLamp::turnOn() {

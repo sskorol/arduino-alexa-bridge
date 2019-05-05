@@ -13,14 +13,12 @@ class LivingRoomLamp : public Lamp, public AlexaBridge {
   static const unsigned long TURN_ON_CODE;
   static const unsigned long TURN_OFF_CODE;
   DeviceInfo* deviceInfo;
-  std::list<DeviceCapability> initCapabilities();
 
  public:
   LivingRoomLamp(uint8_t);
   void turnOn();
   void turnOff();
   void setPowerState(bool);
-  bool shouldSwitchState(unsigned long);
   virtual String getDeviceInfo() override;
   virtual String getStateReport() override;
 };
