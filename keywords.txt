@@ -18,6 +18,12 @@ DeviceCapability      KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
+# Alexa
+powerCapability       KEYWORD2
+brightnessCapability  KEYWORD2
+alexaCapability       KEYWORD2
+healthCapability      KEYWORD2
+
 # AlexaBridge
 getDeviceInfo         KEYWORD2
 getStateReport        KEYWORD2
