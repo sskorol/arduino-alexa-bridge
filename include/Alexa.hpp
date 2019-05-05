@@ -2,9 +2,15 @@
 #define ALEXA_HPP
 
 #include <Arduino.h>
+#include "DeviceCapability.hpp"
 
 namespace Alexa {
 static const String API_VERSION = "3";
+
+class DeviceCapability powerCapability();
+class DeviceCapability brightnessCapability();
+class DeviceCapability alexaCapability();
+class DeviceCapability healthCapability();
 
 class Interface {
  public:

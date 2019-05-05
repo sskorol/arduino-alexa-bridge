@@ -30,3 +30,35 @@ const String DisplayCategory::ACTIVITY_TRIGGER = "ACTIVITY_TRIGGER";
 const String DisplayCategory::CAMERA = "CAMERA";
 const String DisplayCategory::SWITCH = "SWITCH";
 const String DisplayCategory::TV = "TV";
+
+DeviceCapability Alexa::powerCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::POWER,
+      Alexa::API_VERSION,
+      {Property::POWER_STATE});
+}
+
+DeviceCapability Alexa::brightnessCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::BRIGHTNESS,
+      Alexa::API_VERSION,
+      {Property::BRIGHTNESS});
+}
+
+DeviceCapability Alexa::alexaCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::ALEXA,
+      Alexa::API_VERSION,
+      {});
+}
+
+DeviceCapability Alexa::healthCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::ENDPOINT_HEALTH,
+      Alexa::API_VERSION,
+      {Property::CONNECTIVITY});
+}
