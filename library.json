@@ -20,12 +20,6 @@
       "version": "6.10.1",
       "authors": "Benoit Blanchon",
       "frameworks": "arduino"
-    },
-    {
-      "name": "arduino-sensors-wrappers",
-      "version": "0.0.2",
-      "authors": "Sergey Korol",
-      "frameworks": "arduino"
     }
   ],
   "version": "0.0.1",
