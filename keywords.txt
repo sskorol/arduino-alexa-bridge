@@ -3,37 +3,42 @@
 #######################################
 
 # Alexa namespace with a set of helper classes / constants
-Alexa                 KEYWORD1
-Interface             KEYWORD1
-Property              KEYWORD1
-CapabilityType        KEYWORD1
-DisplayCategory       KEYWORD1
+Alexa                   KEYWORD1
+Interface               KEYWORD1
+Property                KEYWORD1
+CapabilityType          KEYWORD1
+DisplayCategory         KEYWORD1
 
 # Alexa bridge and model
-AlexaBridge           KEYWORD1
-DeviceInfo            KEYWORD1
-DeviceCapability      KEYWORD1
+AlexaBridge             KEYWORD1
+DeviceInfo              KEYWORD1
+DeviceCapability        KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
 # Alexa
-powerCapability       KEYWORD2
-brightnessCapability  KEYWORD2
-alexaCapability       KEYWORD2
-healthCapability      KEYWORD2
+powerCapability         KEYWORD2
+brightnessCapability    KEYWORD2
+alexaCapability         KEYWORD2
+healthCapability        KEYWORD2
+channelCapability       KEYWORD2
+inputSourceCapability   KEYWORD2
+speakerCapability       KEYWORD2
+playbackCapability      KEYWORD2
+playbackStateCapability KEYWORD2
 
 # AlexaBridge
-getDeviceInfo         KEYWORD2
-getStateReport        KEYWORD2
+getDeviceInfo           KEYWORD2
+getStateReport          KEYWORD2
 
 # DeviceCapability
-getType               KEYWORD2
-getInterface          KEYWORD2
-getVersion            KEYWORD2
-getProperties         KEYWORD2
+getType                 KEYWORD2
+getInterface            KEYWORD2
+getVersion              KEYWORD2
+getProperties           KEYWORD2
 
 # DeviceInfo
-getDiscoveryInfo      KEYWORD2
-getDeviceCapabilities KEYWORD2
+getDiscoveryInfo        KEYWORD2
+getDeviceCapabilities   KEYWORD2

@@ -11,6 +11,11 @@ class DeviceCapability powerCapability();
 class DeviceCapability brightnessCapability();
 class DeviceCapability alexaCapability();
 class DeviceCapability healthCapability();
+class DeviceCapability channelCapability();
+class DeviceCapability inputSourceCapability();
+class DeviceCapability speakerCapability();
+class DeviceCapability playbackCapability();
+class DeviceCapability playbackStateCapability();
 
 class Interface {
  public:
@@ -23,6 +28,8 @@ class Interface {
   static const String CHANNEL;
   static const String SPEAKER;
   static const String INPUT_SOURCE;
+  static const String PLAYBACK;
+  static const String PLAYBACK_STATE;
 };
 
 class Property {
@@ -34,6 +41,18 @@ class Property {
   static const String INPUT_SOURCE;
   static const String VOLUME;
   static const String MUTED;
+  static const String PLAY;
+  static const String PAUSE;
+  static const String STOP;
+  static const String START_OVER;
+  static const String PREVIOUS;
+  static const String NEXT;
+  static const String REWIND;
+  static const String FAST_FORWARD;
+  static const String PLAYBACK_STATE;
+  static const String PLAYING;
+  static const String STOPPED;
+  static const String PAUSED;
 };
 
 class CapabilityType {
