@@ -72,6 +72,17 @@ class DisplayCategory {
   static const String SWITCH;
   static const String TV;
 };
+
+class HeaderName {
+ public:
+  static const String TURN_ON;
+  static const String TURN_OFF;
+  static const String ADJUST_BRIGHTNESS;
+  static const String SET_BRIGHTNESS;
+  static const String ADJUST_VOLUME;
+  static const String SET_VOLUME;
+  static const String SET_MUTE;
+};
 }  // namespace Alexa
 
 #endif

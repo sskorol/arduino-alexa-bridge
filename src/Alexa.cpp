@@ -45,6 +45,14 @@ const String DisplayCategory::CAMERA = "CAMERA";
 const String DisplayCategory::SWITCH = "SWITCH";
 const String DisplayCategory::TV = "TV";
 
+const String HeaderName::TURN_ON = "TurnOn";
+const String HeaderName::TURN_OFF = "TurnOff";
+const String HeaderName::ADJUST_BRIGHTNESS = "AdjustBrightness";
+const String HeaderName::SET_BRIGHTNESS = "SetBrightness";
+const String HeaderName::ADJUST_VOLUME = "AdjustVolume";
+const String HeaderName::SET_VOLUME = "SetVolume";
+const String HeaderName::SET_MUTE = "SetMute";
+
 DeviceCapability Alexa::powerCapability() {
   return DeviceCapability(
       CapabilityType::ALEXA_INTERFACE,

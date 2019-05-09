@@ -8,6 +8,7 @@ Interface               KEYWORD1
 Property                KEYWORD1
 CapabilityType          KEYWORD1
 DisplayCategory         KEYWORD1
+HeaderName              KEYWORD1
 
 # Alexa bridge and model
 AlexaBridge             KEYWORD1
