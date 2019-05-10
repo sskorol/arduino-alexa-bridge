@@ -17,6 +17,7 @@ const String Interface::PLAYBACK_STATE = "Alexa.PlaybackStateReporter";
 const String Property::POWER_STATE = "powerState";
 const String Property::CONNECTIVITY = "connectivity";
 const String Property::BRIGHTNESS = "brightness";
+const String Property::CHANNEL = "channel";
 const String Property::INPUT_SOURCE = "input";
 const String Property::VOLUME = "volume";
 const String Property::MUTED = "muted";
@@ -52,6 +53,8 @@ const String HeaderName::SET_BRIGHTNESS = "SetBrightness";
 const String HeaderName::ADJUST_VOLUME = "AdjustVolume";
 const String HeaderName::SET_VOLUME = "SetVolume";
 const String HeaderName::SET_MUTE = "SetMute";
+const String HeaderName::CHANGE_CHANNEL = "ChangeChannel";
+const String HeaderName::SKIP_CHANNELS = "SkipChannels";
 
 DeviceCapability Alexa::powerCapability() {
   return DeviceCapability(

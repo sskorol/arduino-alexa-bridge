@@ -82,6 +82,8 @@ class HeaderName {
   static const String ADJUST_VOLUME;
   static const String SET_VOLUME;
   static const String SET_MUTE;
+  static const String CHANGE_CHANNEL;
+  static const String SKIP_CHANNELS;
 };
 }  // namespace Alexa
 
