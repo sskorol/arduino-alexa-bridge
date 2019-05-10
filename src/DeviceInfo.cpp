@@ -1,6 +1,6 @@
 #include "DeviceInfo.hpp"
 
-const unsigned int DeviceInfo::JSON_BUFFER_SIZE = 1024;
+const unsigned int DeviceInfo::JSON_BUFFER_SIZE = 2048;
 
 DeviceInfo::DeviceInfo(String _endpointId,
                        String _friendlyName,
