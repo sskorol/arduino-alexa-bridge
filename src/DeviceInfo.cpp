@@ -7,7 +7,9 @@ DeviceInfo::DeviceInfo(String _endpointId,
                        String _description,
                        String _manufacturerName,
                        std::list<String> _displayCategories,
-                       std::list<DeviceCapability> _deviceCapabilities) : endpointId(_endpointId), friendlyName(_friendlyName), description(_description), manufacturerName(_manufacturerName), displayCategories(_displayCategories), deviceCapabilities(_deviceCapabilities) {}
+                       std::list<DeviceCapability> _deviceCapabilities) : endpointId(_endpointId), friendlyName(_friendlyName), description(_description), manufacturerName(_manufacturerName), displayCategories(_displayCategories), deviceCapabilities(_deviceCapabilities) {
+                         deviceConfiguration = nullptr;
+                       }
 
 String DeviceInfo::getDiscoveryInfo() {
   String output = "";
@@ -49,9 +51,28 @@ void DeviceInfo::prepareCapabilities(JsonArray capabilities) {
       supportedProperty["proactivelyReported"] = true;
       supportedProperty["retrievable"] = true;
     }
+
+    if (deviceConfiguration != nullptr) {
+      JsonObject configuration = nestedCapability.createNestedObject("configuration");
+      configuration["supportsScheduling"] = deviceConfiguration->supportsScheduling();
+      JsonArray supportedModes = configuration.createNestedArray("supportedModes");
+      
+      for (auto mode : deviceConfiguration->getSupportedModes()) {
+        supportedModes.add(mode);
+      }
+    }
   }
 }
 
 std::list<DeviceCapability> DeviceInfo::getDeviceCapabilities() {
   return deviceCapabilities;
+}
+
+DeviceConfiguration* DeviceInfo::getDeviceConfiguration() {
+  return deviceConfiguration;
+}
+
+DeviceInfo* DeviceInfo::withDeviceConfiguration(DeviceConfiguration* _deviceConfiguration) {
+  deviceConfiguration = _deviceConfiguration;
+  return this;
 }

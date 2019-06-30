@@ -9,26 +9,31 @@ Property                KEYWORD1
 CapabilityType          KEYWORD1
 DisplayCategory         KEYWORD1
 HeaderName              KEYWORD1
+ThermostatMode          KEYWORD1
 
 # Alexa bridge and model
 AlexaBridge             KEYWORD1
 DeviceInfo              KEYWORD1
 DeviceCapability        KEYWORD1
+DeviceConfiguration      KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
 # Alexa
-powerCapability         KEYWORD2
-brightnessCapability    KEYWORD2
-alexaCapability         KEYWORD2
-healthCapability        KEYWORD2
-channelCapability       KEYWORD2
-inputSourceCapability   KEYWORD2
-speakerCapability       KEYWORD2
-playbackCapability      KEYWORD2
-playbackStateCapability KEYWORD2
+powerCapability             KEYWORD2
+brightnessCapability        KEYWORD2
+alexaCapability             KEYWORD2
+healthCapability            KEYWORD2
+channelCapability           KEYWORD2
+inputSourceCapability       KEYWORD2
+speakerCapability           KEYWORD2
+playbackCapability          KEYWORD2
+playbackStateCapability     KEYWORD2
+thermostatCapability        KEYWORD2
+temperatureSensorCapability KEYWORD2
+deviceConfiguration          KEYWORD2
 
 # AlexaBridge
 getDeviceInfo           KEYWORD2
@@ -43,3 +48,9 @@ getProperties           KEYWORD2
 # DeviceInfo
 getDiscoveryInfo        KEYWORD2
 getDeviceCapabilities   KEYWORD2
+getDeviceConfiguration   KEYWORD2
+withDeviceConfiguration  KEYWORD2
+
+# DeviceConfiguration
+supportsScheduling      KEYWORD2
+getSupportedModes       KEYWORD2

@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include "DeviceCapability.hpp"
+#include "DeviceConfiguration.hpp"
 
 namespace Alexa {
 static const String API_VERSION = "3";
@@ -16,6 +17,9 @@ class DeviceCapability inputSourceCapability();
 class DeviceCapability speakerCapability();
 class DeviceCapability playbackCapability();
 class DeviceCapability playbackStateCapability();
+class DeviceCapability thermostatCapability();
+class DeviceCapability temperatureSensorCapability();
+class DeviceConfiguration deviceConfiguration();
 
 class Interface {
  public:
@@ -30,6 +34,8 @@ class Interface {
   static const String INPUT_SOURCE;
   static const String PLAYBACK;
   static const String PLAYBACK_STATE;
+  static const String THERMOSTAT;
+  static const String TEMPERATURE_SENSOR;
 };
 
 class Property {
@@ -53,6 +59,12 @@ class Property {
   static const String PLAYING;
   static const String STOPPED;
   static const String PAUSED;
+  static const String TEMPERATURE;
+  static const String LOWER_SETPOINT;
+  static const String TARGET_SETPOINT;
+  static const String UPPER_SETPOINT;
+  static const String THERMOSTAT_MODE;
+  static const String SCHEDULE;
 };
 
 class CapabilityType {
@@ -73,6 +85,7 @@ class DisplayCategory {
   static const String TV;
 };
 
+// Directive
 class HeaderName {
  public:
   static const String TURN_ON;
@@ -84,6 +97,17 @@ class HeaderName {
   static const String SET_MUTE;
   static const String CHANGE_CHANNEL;
   static const String SKIP_CHANNELS;
+  static const String SET_TARGET_TEMPERATURE;
+  static const String ADJUST_TARGET_TEMPERATURE;
+  static const String SET_THERMOSTAT_MODE;
+  static const String RESUME_SCHEDULE;
+};
+
+class ThermostatMode {
+ public:
+  static const String HEAT;
+  static const String COOL;
+  static const String AUTO;
 };
 }  // namespace Alexa
 

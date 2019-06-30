@@ -13,6 +13,8 @@ const String Interface::SPEAKER = "Alexa.Speaker";
 const String Interface::INPUT_SOURCE = "Alexa.InputController";
 const String Interface::PLAYBACK = "Alexa.PlaybackController";
 const String Interface::PLAYBACK_STATE = "Alexa.PlaybackStateReporter";
+const String Interface::THERMOSTAT = "Alexa.ThermostatController";
+const String Interface::TEMPERATURE_SENSOR = "Alexa.TemperatureSensor";
 
 const String Property::POWER_STATE = "powerState";
 const String Property::CONNECTIVITY = "connectivity";
@@ -33,6 +35,12 @@ const String Property::PLAYBACK_STATE = "playbackState";
 const String Property::PLAYING = "PLAYING";
 const String Property::STOPPED = "STOPPED";
 const String Property::PAUSED = "PAUSED";
+const String Property::TEMPERATURE = "temperature";
+const String Property::LOWER_SETPOINT = "lowerSetpoint";
+const String Property::TARGET_SETPOINT = "targetSetpoint";
+const String Property::UPPER_SETPOINT = "upperSetpoint";
+const String Property::THERMOSTAT_MODE = "thermostatMode";
+const String Property::SCHEDULE = "schedule";
 
 const String CapabilityType::ALEXA_INTERFACE = "AlexaInterface";
 
@@ -55,6 +63,14 @@ const String HeaderName::SET_VOLUME = "SetVolume";
 const String HeaderName::SET_MUTE = "SetMute";
 const String HeaderName::CHANGE_CHANNEL = "ChangeChannel";
 const String HeaderName::SKIP_CHANNELS = "SkipChannels";
+const String HeaderName::SET_TARGET_TEMPERATURE = "SetTargetTemperature";
+const String HeaderName::ADJUST_TARGET_TEMPERATURE = "AdjustTargetTemperature";
+const String HeaderName::SET_THERMOSTAT_MODE = "SetThermostatMode";
+const String HeaderName::RESUME_SCHEDULE = "ResumeSchedule";
+
+const String ThermostatMode::AUTO = "AUTO";
+const String ThermostatMode::COOL = "COOL";
+const String ThermostatMode::HEAT = "HEAT";
 
 DeviceCapability Alexa::powerCapability() {
   return DeviceCapability(
@@ -126,4 +142,24 @@ DeviceCapability Alexa::playbackStateCapability() {
       Interface::PLAYBACK_STATE,
       Alexa::API_VERSION,
       {Property::PLAYBACK_STATE});
+}
+
+DeviceCapability Alexa::thermostatCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::THERMOSTAT,
+      Alexa::API_VERSION,
+      {Property::TARGET_SETPOINT, Property::LOWER_SETPOINT, Property::UPPER_SETPOINT, Property::THERMOSTAT_MODE});
+}
+
+DeviceCapability Alexa::temperatureSensorCapability() {
+  return DeviceCapability(
+      CapabilityType::ALEXA_INTERFACE,
+      Interface::TEMPERATURE_SENSOR,
+      Alexa::API_VERSION,
+      {Property::TEMPERATURE});
+}
+
+DeviceConfiguration Alexa::deviceConfiguration() {
+  return DeviceConfiguration(false, {ThermostatMode::AUTO, ThermostatMode::COOL, ThermostatMode::HEAT});
 }
