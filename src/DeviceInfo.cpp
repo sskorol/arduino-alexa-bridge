@@ -1,6 +1,6 @@
 #include "DeviceInfo.hpp"
 
-const unsigned int DeviceInfo::JSON_BUFFER_SIZE = 2048;
+const unsigned int DeviceInfo::JSON_BUFFER_SIZE = 3072;
 
 DeviceInfo::DeviceInfo(String _endpointId,
                        String _friendlyName,
@@ -8,7 +8,7 @@ DeviceInfo::DeviceInfo(String _endpointId,
                        String _manufacturerName,
                        std::list<String> _displayCategories,
                        std::list<DeviceCapability> _deviceCapabilities) : endpointId(_endpointId), friendlyName(_friendlyName), description(_description), manufacturerName(_manufacturerName), displayCategories(_displayCategories), deviceCapabilities(_deviceCapabilities) {
-                         deviceConfiguration = nullptr;
+                         deviceConfiguration = new DeviceConfiguration();
                        }
 
 String DeviceInfo::getDiscoveryInfo() {
@@ -52,7 +52,7 @@ void DeviceInfo::prepareCapabilities(JsonArray capabilities) {
       supportedProperty["retrievable"] = true;
     }
 
-    if (deviceConfiguration != nullptr) {
+    if (Alexa::Interface::THERMOSTAT.equalsIgnoreCase(capability.getInterface())) {
       JsonObject configuration = nestedCapability.createNestedObject("configuration");
       configuration["supportsScheduling"] = deviceConfiguration->supportsScheduling();
       JsonArray supportedModes = configuration.createNestedArray("supportedModes");
