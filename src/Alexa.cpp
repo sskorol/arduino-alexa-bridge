@@ -73,93 +73,94 @@ const String ThermostatMode::COOL = "COOL";
 const String ThermostatMode::HEAT = "HEAT";
 
 DeviceCapability Alexa::powerCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::POWER,
-      Alexa::API_VERSION,
-      {Property::POWER_STATE});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::POWER,
+            Alexa::API_VERSION,
+            {Property::POWER_STATE});
 }
 
 DeviceCapability Alexa::brightnessCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::BRIGHTNESS,
-      Alexa::API_VERSION,
-      {Property::BRIGHTNESS});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::BRIGHTNESS,
+            Alexa::API_VERSION,
+            {Property::BRIGHTNESS});
 }
 
 DeviceCapability Alexa::alexaCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::ALEXA,
-      Alexa::API_VERSION,
-      {});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::ALEXA,
+            Alexa::API_VERSION,
+            {});
 }
 
 DeviceCapability Alexa::healthCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::ENDPOINT_HEALTH,
-      Alexa::API_VERSION,
-      {Property::CONNECTIVITY});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::ENDPOINT_HEALTH,
+            Alexa::API_VERSION,
+            {Property::CONNECTIVITY});
 }
 
 DeviceCapability Alexa::channelCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::CHANNEL,
-      Alexa::API_VERSION,
-      {Property::CHANNEL});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::CHANNEL,
+            Alexa::API_VERSION,
+            {Property::CHANNEL});
 }
 
 DeviceCapability Alexa::inputSourceCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::INPUT_SOURCE,
-      Alexa::API_VERSION,
-      {Property::INPUT_SOURCE});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::INPUT_SOURCE,
+            Alexa::API_VERSION,
+            {Property::INPUT_SOURCE});
 }
 
 DeviceCapability Alexa::speakerCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::SPEAKER,
-      Alexa::API_VERSION,
-      {Property::VOLUME, Property::MUTED});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::SPEAKER,
+            Alexa::API_VERSION,
+            {Property::VOLUME, Property::MUTED});
 }
 
 DeviceCapability Alexa::playbackCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::PLAYBACK,
-      Alexa::API_VERSION,
-      {Property::PLAY, Property::PAUSE, Property::PREVIOUS, Property::REWIND, Property::START_OVER, Property::STOP, Property::FAST_FORWARD, Property::NEXT});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::PLAYBACK,
+            Alexa::API_VERSION,
+            {Property::PLAY, Property::PAUSE, Property::PREVIOUS, Property::REWIND, Property::START_OVER,
+             Property::STOP, Property::FAST_FORWARD, Property::NEXT});
 }
 
 DeviceCapability Alexa::playbackStateCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::PLAYBACK_STATE,
-      Alexa::API_VERSION,
-      {Property::PLAYBACK_STATE});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::PLAYBACK_STATE,
+            Alexa::API_VERSION,
+            {Property::PLAYBACK_STATE});
 }
 
 DeviceCapability Alexa::thermostatCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::THERMOSTAT,
-      Alexa::API_VERSION,
-      {Property::TARGET_SETPOINT, Property::LOWER_SETPOINT, Property::UPPER_SETPOINT, Property::THERMOSTAT_MODE});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::THERMOSTAT,
+            Alexa::API_VERSION,
+            {Property::TARGET_SETPOINT, Property::LOWER_SETPOINT, Property::UPPER_SETPOINT, Property::THERMOSTAT_MODE});
 }
 
 DeviceCapability Alexa::temperatureSensorCapability() {
-  return DeviceCapability(
-      CapabilityType::ALEXA_INTERFACE,
-      Interface::TEMPERATURE_SENSOR,
-      Alexa::API_VERSION,
-      {Property::TEMPERATURE});
+    return DeviceCapability(
+            CapabilityType::ALEXA_INTERFACE,
+            Interface::TEMPERATURE_SENSOR,
+            Alexa::API_VERSION,
+            {Property::TEMPERATURE});
 }
 
 DeviceConfiguration Alexa::deviceConfiguration() {
-  return DeviceConfiguration(false, {ThermostatMode::AUTO, ThermostatMode::COOL, ThermostatMode::HEAT});
+    return DeviceConfiguration(false, {ThermostatMode::AUTO, ThermostatMode::COOL, ThermostatMode::HEAT});
 }

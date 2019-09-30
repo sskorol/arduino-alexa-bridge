@@ -4,10 +4,12 @@
 #include <Arduino.h>
 
 class AlexaBridge {
- public:
-  virtual ~AlexaBridge() {}
-  virtual String getDeviceInfo() = 0;
-  virtual String getStateReport() = 0;
+public:
+    virtual ~AlexaBridge() {}
+
+    virtual String getDeviceInfo() = 0;
+
+    virtual String getStateReport() = 0;
 };
 
 #endif

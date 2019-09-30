@@ -9,56 +9,74 @@ const unsigned int LivingRoomLamp::RC_SWITCH_LENGTH = 24;
 const unsigned long LivingRoomLamp::TURN_ON_CODE = 400001;
 const unsigned long LivingRoomLamp::TURN_OFF_CODE = 400002;
 
-LivingRoomLamp::LivingRoomLamp(uint8_t pin) : Lamp(pin) {
-  deviceInfo = new DeviceInfo("living_room_lamp", "living room light", "Living Room Lamp", "Home", {DisplayCategory::LIGHT}, {DisplayCategory::LIGHT}, {Alexa::powerCapability(), Alexa::alexaCapability(), Alexa::healthCapability()});
+LivingRoomLamp::LivingRoomLamp(uint8_t transmitterPin) : Lamp(transmitterPin) {
+    _isPaused = false;
+    deviceInfo = new DeviceInfo("living_room_lamp", "light", "Living Room Lamp 1", "Home", {DisplayCategory::LIGHT},
+                                {Alexa::powerCapability(), Alexa::alexaCapability(), Alexa::healthCapability()});
 }
 
 void LivingRoomLamp::turnOn() {
-  Lamp::switchProtocol(RC_SWITCH_PROTOCOL);
-  Lamp::turnOn(TURN_ON_CODE, RC_SWITCH_LENGTH);
+    Lamp::switchProtocol(RC_SWITCH_PROTOCOL);
+    Lamp::turnOn(TURN_ON_CODE, RC_SWITCH_LENGTH);
 }
 
 void LivingRoomLamp::turnOff() {
-  Lamp::switchProtocol(RC_SWITCH_PROTOCOL);
-  Lamp::turnOff(TURN_OFF_CODE, RC_SWITCH_LENGTH);
+    Lamp::switchProtocol(RC_SWITCH_PROTOCOL);
+    Lamp::turnOff(TURN_OFF_CODE, RC_SWITCH_LENGTH);
 }
 
 void LivingRoomLamp::setPowerState(bool state) {
-  if (state) {
-    turnOn();
-  } else {
-    turnOff();
-  }
-  Lamp::setPowerState(state);
+    if (state) {
+        turnOn();
+    } else {
+        turnOff();
+    }
+    Lamp::setPowerState(state);
 }
 
-String LivingRoomLamp::getDeviceInfo() {
-  return deviceInfo->getDiscoveryInfo();
+/*
+  These 2 methods required for tracking manual state changes
+*/
+bool LivingRoomLamp::isManuallyPressed(unsigned long code) {
+    if (!_isPaused && (code == TURN_ON_CODE || code == TURN_OFF_CODE)) {
+        _isPaused = true;
+        Lamp::setPowerState(!Lamp::isTurnedOn());
+        return true;
+    }
+    return false;
+}
+
+void LivingRoomLamp::resetManualState() {
+    _isPaused = false;
+}
+
+bool LivingRoomLamp::isPaused() {
+    return _isPaused;
 }
 
 String LivingRoomLamp::getStateReport() {
-  String output = "";
-  StaticJsonDocument<JSON_BUFFER_SIZE> jsonBuffer;
-  JsonArray outputProperties = jsonBuffer.createNestedArray();
+    String output = "";
+    StaticJsonDocument <JSON_BUFFER_SIZE> jsonBuffer;
+    JsonArray outputProperties = jsonBuffer.createNestedArray();
 
-  for (auto capability : deviceInfo->getDeviceCapabilities()) {
-    for (auto property : capability.getProperties()) {
-      JsonObject nestedProperty = outputProperties.createNestedObject();
-      nestedProperty["namespace"] = capability.getInterface();
-      nestedProperty["name"] = property;
-      nestedProperty["timeOfSample"] = "";
-      nestedProperty["uncertaintyInMilliseconds"] = UNCERTAINTY_MS;
+    for (auto capability : deviceInfo->getDeviceCapabilities()) {
+        for (const auto &property : capability.getProperties()) {
+            JsonObject nestedProperty = outputProperties.createNestedObject();
+            nestedProperty["namespace"] = capability.getInterface();
+            nestedProperty["name"] = property;
+            nestedProperty["timeOfSample"] = "";
+            nestedProperty["uncertaintyInMilliseconds"] = UNCERTAINTY_MS;
 
-      if (Property::CONNECTIVITY.equalsIgnoreCase(property)) {
-        JsonObject value = nestedProperty.createNestedObject("value");
-        value["value"] = "OK";
-      } else if (Property::POWER_STATE.equalsIgnoreCase(property)) {
-        nestedProperty["value"] = Lamp::isTurnedOn() ? "ON" : "OFF";
-      }
+            if (Property::CONNECTIVITY.equalsIgnoreCase(property)) {
+                JsonObject value = nestedProperty.createNestedObject("value");
+                value["value"] = "OK";
+            } else if (Property::POWER_STATE.equalsIgnoreCase(property)) {
+                nestedProperty["value"] = Lamp::isTurnedOn() ? "ON" : "OFF";
+            }
+        }
     }
-  }
 
-  serializeJsonPretty(jsonBuffer, output);
+    serializeJsonPretty(jsonBuffer, output);
 
-  return output;
+    return output;
 }

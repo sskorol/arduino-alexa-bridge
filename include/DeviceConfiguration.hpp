@@ -5,14 +5,17 @@
 #include <list>
 
 class DeviceConfiguration {
-  bool isSchedulingSupported;
-  std::list<String> supportedModes;
+    bool isSchedulingSupported;
+    std::list<String> supportedModes;
 
- public:
-  DeviceConfiguration();
-  DeviceConfiguration(bool, std::list<String>);
-  bool supportsScheduling();
-  std::list<String> getSupportedModes();
+public:
+    DeviceConfiguration();
+
+    DeviceConfiguration(bool, std::list<String>);
+
+    bool supportsScheduling();
+
+    std::list<String> getSupportedModes();
 };
 
 #endif

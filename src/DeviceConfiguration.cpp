@@ -1,16 +1,19 @@
 #include "DeviceConfiguration.hpp"
 
-DeviceConfiguration::DeviceConfiguration(bool _isSchedulingSupported, std::list<String> _supportedModes) : isSchedulingSupported(_isSchedulingSupported), supportedModes(_supportedModes) {}
+#include <utility>
+
+DeviceConfiguration::DeviceConfiguration(bool _isSchedulingSupported, std::list<String> _supportedModes)
+        : isSchedulingSupported(_isSchedulingSupported), supportedModes(std::move(_supportedModes)) {}
 
 DeviceConfiguration::DeviceConfiguration() {
-  isSchedulingSupported = false;
-  supportedModes = {};
+    isSchedulingSupported = false;
+    supportedModes = {};
 }
 
 bool DeviceConfiguration::supportsScheduling() {
-  return isSchedulingSupported;
+    return isSchedulingSupported;
 }
 
 std::list<String> DeviceConfiguration::getSupportedModes() {
-  return supportedModes;
+    return supportedModes;
 }

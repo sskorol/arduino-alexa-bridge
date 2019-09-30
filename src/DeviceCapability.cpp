@@ -1,10 +1,14 @@
 #include "DeviceCapability.hpp"
 
+#include <utility>
+
 DeviceCapability::DeviceCapability(
-    String _type,
-    String _interface,
-    String _version,
-    std::list<String> _properties) : type(_type), interface(_interface), version(_version), properties(_properties) {}
+        String _type,
+        String _interface,
+        String _version,
+        std::list<String> _properties) : type(std::move(_type)), interface(std::move(_interface)),
+                                         version(std::move(_version)),
+                                         properties(std::move(_properties)) {}
 
 String DeviceCapability::getType() {
     return type;

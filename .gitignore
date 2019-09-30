@@ -1,6 +1,9 @@
+.idea
+.pio
 .DS_Store
 .pioenvs
 .piolibdeps
 .vscode
 platformio.ini
 EntryPoint.*
+cmake*

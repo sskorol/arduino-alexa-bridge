@@ -15,7 +15,7 @@ ThermostatMode          KEYWORD1
 AlexaBridge             KEYWORD1
 DeviceInfo              KEYWORD1
 DeviceCapability        KEYWORD1
-DeviceConfiguration      KEYWORD1
+DeviceConfiguration     KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -33,7 +33,7 @@ playbackCapability          KEYWORD2
 playbackStateCapability     KEYWORD2
 thermostatCapability        KEYWORD2
 temperatureSensorCapability KEYWORD2
-deviceConfiguration          KEYWORD2
+deviceConfiguration         KEYWORD2
 
 # AlexaBridge
 getDeviceInfo           KEYWORD2
@@ -48,8 +48,8 @@ getProperties           KEYWORD2
 # DeviceInfo
 getDiscoveryInfo        KEYWORD2
 getDeviceCapabilities   KEYWORD2
-getDeviceConfiguration   KEYWORD2
-withDeviceConfiguration  KEYWORD2
+getDeviceConfiguration  KEYWORD2
+withDeviceConfiguration KEYWORD2
 
 # DeviceConfiguration
 supportsScheduling      KEYWORD2
